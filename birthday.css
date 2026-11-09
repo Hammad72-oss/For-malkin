@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --night: #070D24;
+    --gold: #D6B878;
+    --moon: #F5E9C9;
+}
+
+body {
+    background: var(--night);
+    color: var(--moon);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.sky {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 40%,
+        #1b2c52,
+        #101a37 45%,
+        #070D24 85%);
+    z-index: -2;
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: var(--moon);
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.birthday-container {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    animation: reveal 1.5s ease;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 6px;
+}
+
+.ornament {
+    color: var(--gold);
+    font-size: 35px;
+    margin: 25px 0;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 10vw, 100px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--moon);
+}
+
+.her-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 8vw, 75px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    margin-top: 15px;
+    text-shadow: 0 0 35px #d6b87833;
+}
+
+.gold-line {
+    width: 100px;
+    height: 1px;
+    background: var(--gold);
+    margin: 30px auto;
+}
+
+.birthday-message {
+    font-size: 12px;
+    line-height: 2.2;
+    letter-spacing: 0.5px;
+    color: #c5c9d8;
+    max-width: 500px;
+}
+
+.birthday-wish {
+    margin-top: 35px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold);
+}
+
+.next-button {
+    margin-top: 45px;
+    padding: 15px 28px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 3px;
+    transition: 0.4s;
+}
+
+.next-button:hover {
+    background: var(--gold);
+    color: var(--night);
+}
+
+@media(max-width: 600px) {
+
+    .eyebrow {
+        letter-spacing: 3px;
+    }
+
+    .birthday-container {
+        padding: 55px 22px;
+    }
+
+    .birthday-message {
+        font-size: 11px;
+    }
+}
